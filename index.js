@@ -20,7 +20,7 @@ async function main(){
     // creator: wallet address of the project creator
 async function create_and_list_product(product_id, amount, merchant_id,creator){
     // address of the smart contract on the blast blockchain
-    const marketplaceAddr = "0x686690ef4a57F11A4980e0053E2D1EdD69782F35";
+    const marketplaceAddr = "0xa24e680152C168cbBf5e8D62060bF55A8dd71BD6";
     const contract = new ethers.Contract(marketplaceAddr, abi, admin);
     let list_product = await contract.createProduct(product_id,amount,merchant_id,creator);
     let tx = await list_product.wait();
@@ -30,10 +30,8 @@ async function create_and_list_product(product_id, amount, merchant_id,creator){
 }
 
 
-
-
 async function order_product(product_id,amount,buyer_id,wallet){
-    const marketplaceAddr = "0x686690ef4a57F11A4980e0053E2D1EdD69782F35";
+    const marketplaceAddr = "0xa24e680152C168cbBf5e8D62060bF55A8dd71BD6" //"0x686690ef4a57F11A4980e0053E2D1EdD69782F35";
     const contract = new ethers.Contract(marketplaceAddr, abi, wallet);
     let order = await contract.orderProduct(product_id,amount,buyer_id, {value:ethers.parseEther(amount)});
     let tx = await order.wait();
@@ -43,7 +41,7 @@ async function order_product(product_id,amount,buyer_id,wallet){
 }
 
 async function confirm_order(product_id){
-    const marketplaceAddr = "0x686690ef4a57F11A4980e0053E2D1EdD69782F35";
+    const marketplaceAddr = '0xa24e680152C168cbBf5e8D62060bF55A8dd71BD6' //"0x686690ef4a57F11A4980e0053E2D1EdD69782F35";
     const contract = new ethers.Contract(marketplaceAddr, abi, admin);
     let confirm = await contract.confirmOrder(product_id);
     let tx = await confirm.wait();
@@ -82,6 +80,6 @@ async function sendTransaction(privateKey,amount,toAddress){
 }
 
 
-main().then(err => {
+main().then((err) => {
     console.log(err)
 })

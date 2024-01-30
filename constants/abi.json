@@ -6,7 +6,22 @@
   },
   {
     "inputs": [],
-    "name": "DepositDoesNotMatchAmount",
+    "name": "DoNotHaveGasSpent",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InsufficientFunds",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidPrice",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidProductState",
     "type": "error"
   },
   {
@@ -16,8 +31,37 @@
   },
   {
     "inputs": [],
+    "name": "ProductAlreadyExists",
+    "type": "error"
+  },
+  {
+    "inputs": [],
     "name": "TransacationWasNotSuccessful",
     "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "WrongSignature",
+    "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "time",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "GasClaimed",
+    "type": "event"
   },
   {
     "anonymous": false,
@@ -147,6 +191,32 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "checkGasDue",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "claimAllGas",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "string",
@@ -185,6 +255,25 @@
     "name": "createProduct",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "gasSpent",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -286,6 +375,25 @@
       }
     ],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "caller",
+        "type": "address"
+      }
+    ],
+    "name": "redeemGas",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "sent",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
