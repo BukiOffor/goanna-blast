@@ -5,7 +5,7 @@ const { abi, code } = require("./constants");
 const provider = new ethers.JsonRpcProvider('https://rpc.ankr.com/blast_testnet_sepolia');
 
 //wallet instance of the contract admin
-const admin = new ethers.Wallet("b72cb42b3319abb30fc17f7e20ea58165a84de90c9afd90fcb80382062e01382", provider);
+const admin = new ethers.Wallet("", provider);
 
 
 async function main(){
